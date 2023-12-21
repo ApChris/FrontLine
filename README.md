@@ -43,5 +43,6 @@ The results will be organized in a timestamped folder within the "FrontLine" roo
 
 ![Image Description](./images/FrontLine2.PNG)
 
+
 ## Disclaimer:
 FrontLine is intended for educational and informational purposes only. Use this tool responsibly and adhere to legal and ethical guidelines when performing system analysis.
