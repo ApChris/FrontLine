@@ -3,7 +3,7 @@
 FrontLine is a powerful PowerShell-based tool designed for comprehensive Windows system analysis, focusing on security-related aspects, network configurations, installed software, and more. This tool is crafted to provide administrators and security professionals with valuable insights into the state and configuration of a Windows environment.
 
 ![Image Description](./images/FrontLine1.PNG)
-![Image Description](./images/FrontLine_2.PNG)
+
 
 ## Key Features:
 
@@ -38,6 +38,8 @@ Collect DNS cache configuration and ARP details for thorough network analysis.
 Ensure the script is run with elevated privileges (Run as Administrator).\
 Execute the script, and the tool will automatically generate a structured output with categorized information.\
 The results will be organized in a timestamped folder within the "FrontLine" root directory, facilitating easy navigation.\
+
+![Image Description](./images/FrontLine_2.PNG)
 
 ## Disclaimer:
 FrontLine is intended for educational and informational purposes only. Use this tool responsibly and adhere to legal and ethical guidelines when performing system analysis.
