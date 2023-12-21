@@ -1,6 +1,6 @@
 # FrontLine
 
-FrontLine is a powerful PowerShell-based tool designed for comprehensive Windows system analysis, focusing on security-related aspects, network configurations, installed software, and more. This tool is crafted to provide administrators and security professionals with valuable insights into the state and configuration of a Windows environment.
+FrontLine is a PowerShell-based tool designed for comprehensive Windows system analysis, focusing on security-related aspects, network configurations, installed software, and more. This tool is crafted to provide administrators and security professionals with valuable insights into the state and configuration of a Windows environment.
 
 ![Image Description](./images/FrontLine1.PNG)
 
@@ -11,7 +11,7 @@ FrontLine is a powerful PowerShell-based tool designed for comprehensive Windows
 Retrieve comprehensive system information, including hardware details, operating system configuration, and user information.
 
 ### 2. Process and Service Analysis:
-List running processes and services on the system, aiding in monitoring and troubleshooting.
+List running processes and services on the system.
 
 ### 3. Network Analysis:
 Capture network-related data, including active sessions, open ports, and SMB sessions.
