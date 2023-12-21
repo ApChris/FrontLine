@@ -39,7 +39,7 @@ Collect DNS cache configuration and ARP details for thorough network analysis.
 ## Usage:
 Ensure the script is run with elevated privileges (Run as Administrator).\
 Execute the script, and the tool will automatically generate a structured output with categorized information.\
-The results will be organized in a timestamped folder within the "FrontLine" root directory, facilitating easy navigation.\
+The results will be organized in a timestamped folder within the "FrontLine" root directory, facilitating easy navigation.
 
 ![Image Description](./images/FrontLine2.PNG)
 
