@@ -34,12 +34,14 @@ Extract details about extensions installed in Microsoft Edge, Google Chrome, and
 ### 9. DNS and ARP Information:
 Collect DNS cache configuration and ARP details for thorough network analysis.
 
+![Image Description](./images/FrontLine3.PNG)
+
 ## Usage:
 Ensure the script is run with elevated privileges (Run as Administrator).\
 Execute the script, and the tool will automatically generate a structured output with categorized information.\
 The results will be organized in a timestamped folder within the "FrontLine" root directory, facilitating easy navigation.\
 
-![Image Description](./images/FrontLine_2.PNG)
+![Image Description](./images/FrontLine2.PNG)
 
 ## Disclaimer:
 FrontLine is intended for educational and informational purposes only. Use this tool responsibly and adhere to legal and ethical guidelines when performing system analysis.
