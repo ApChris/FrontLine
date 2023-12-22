@@ -153,8 +153,7 @@ if (Test-AdminPrivileges)
 
     $outputFilePathSecurity = Join-Path -Path $outputFolder -ChildPath "SecurityLogs.txt"
     Get-WinEvent -LogName Security | ForEach-Object { "$($_.Id): $($_.Message)" } | Out-File -FilePath $outputFilePathSecurity
-
-    # Add additional information
+    
     Save-InfoToFile -outputFolder $outputFolder -category "Autoruns" -data (Get-CimInstance -ClassName Win32_StartupCommand | Format-Table -AutoSize)
     Save-InfoToFile -outputFolder $outputFolder -category "Services" -data (Get-Service | Format-Table -AutoSize)
     Save-InfoToFile -outputFolder $outputFolder -category "Administrators" -data (Get-LocalGroupMember -Group "Administrators" | Format-Table -AutoSize)
