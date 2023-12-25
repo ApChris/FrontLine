@@ -119,6 +119,51 @@ function Get-ARP
     Save-InfoToFile -outputFolder $outputFolder -category "ARP" -data $arpTable
 }
 
+function Get-ExtensionDetails 
+{
+    param ([string]$browserName,[string]$extensionsPath)
+
+    $browserExtensionsPath = Join-Path -Path $env:LOCALAPPDATA -ChildPath $extensionsPath
+    if (Test-Path $browserExtensionsPath) 
+    {
+        $browserExtensions = Get-ChildItem -Path $browserExtensionsPath -Directory
+        $extensionDetails = foreach ($extension in $browserExtensions) 
+        {
+            $manifestPath = Get-ChildItem -Path $extension.FullName -Filter 'manifest.json' -Recurse -File | Select-Object -First 1 -ExpandProperty FullName
+            if ($manifestPath) 
+            {
+                try 
+                {
+                    $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+                    $extensionName = $manifest.name
+                }
+                catch 
+                {
+                    $extensionName = "Unknown"
+                }
+            }
+            else 
+            {
+                $extensionName = "Unknown"
+            }
+
+            [PSCustomObject]@{
+                Name = $extensionName
+                ID = $extension.Name
+                Path = $extension.FullName
+            }
+        }
+
+        Save-InfoToFile -outputFolder $outputFolder -category "${browserName}Extensions" -data $extensionDetails | Format-Table -AutoSize
+    }
+    else 
+    {
+        Save-InfoToFile -outputFolder $outputFolder -category "${browserName}Extensions" -data "Extensions folder not found for $browserName."
+    }
+}
+
+
+
 if (Test-AdminPrivileges) 
 {
     $scriptFolder = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -153,7 +198,7 @@ if (Test-AdminPrivileges)
 
     $outputFilePathSecurity = Join-Path -Path $outputFolder -ChildPath "SecurityLogs.txt"
     Get-WinEvent -LogName Security | ForEach-Object { "$($_.Id): $($_.Message)" } | Out-File -FilePath $outputFilePathSecurity
-    
+
     Save-InfoToFile -outputFolder $outputFolder -category "Autoruns" -data (Get-CimInstance -ClassName Win32_StartupCommand | Format-Table -AutoSize)
     Save-InfoToFile -outputFolder $outputFolder -category "Services" -data (Get-Service | Format-Table -AutoSize)
     Save-InfoToFile -outputFolder $outputFolder -category "Administrators" -data (Get-LocalGroupMember -Group "Administrators" | Format-Table -AutoSize)
@@ -172,6 +217,10 @@ if (Test-AdminPrivileges)
     
     Get-AntivirusLogs    
     Get-FirewallLogs
+
+    Get-ExtensionDetails -browserName "Edge" -extensionsPath "Microsoft\Edge\User Data\Default\Extensions"
+    Get-ExtensionDetails -browserName "Chrome" -extensionsPath "Google\Chrome\User Data\Default\Extensions"
+    Get-ExtensionDetails -browserName "Firefox" -extensionsPath "Mozilla\Firefox\Profiles"
 
     Write-Host "Information collected and saved to: $outputFolder"
 } 
