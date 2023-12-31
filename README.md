@@ -34,7 +34,7 @@ Extract details about extensions installed in Microsoft Edge, Google Chrome, and
 ### 9. DNS and ARP Information:
 Collect DNS cache configuration and ARP details for thorough network analysis.
 
-![Image Description](./images/FrontLine3.PNG)
+![Image Description](./images/FrontLine_3.PNG)
 
 ## Usage:
 Ensure the script is run with elevated privileges (Run as Administrator).\
